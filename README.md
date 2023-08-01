@@ -16,3 +16,15 @@ success.
 • A method to mark a room as repaired (Vacant).
 • A method to list all the available rooms.
 
+
+
+# To fulfill the requirements, I'll provide a Python program with the following classes and methods:
+## HotelRoomManager: 
+A class representing the hotel room manager that handles room assignments, checkouts, and room status changes.
+## Room:
+A class representing each individual room with its status.
+## RoomStatus: 
+An enumeration to represent the possible room statuses.
+Unit tests for the provided functionality.
+
+

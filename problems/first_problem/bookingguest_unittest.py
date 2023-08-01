@@ -2,6 +2,7 @@
 '''
 import all required dependancy
 '''
+from spread_infection import get_all_infected_amount_of_time
 from room import Room
 from roomstatus import RoomStatus
 from hotelbooking import HotelRoomBooking
@@ -9,7 +10,7 @@ from hotelbooking import HotelRoomBooking
 # Unit test
 
 
-def run_unittest():
+def run_unittest_part1():
     hotel_manager = HotelRoomBooking(floors=3, room_per_floor=5)
 
     # step1 make occupied by asssigning the room to the specific persons
@@ -63,19 +64,23 @@ def run_unittest():
     hotel_manager.mark_room_cleaned("3C")
 
     hotel_manager.list_available_rooms()
-    # Should display: Available rooms: 1B, 2C, 3C, 3D, 3E
 
     hotel_manager.mark_room_cleaned("1B")
     hotel_manager.list_available_rooms()
-    # Should display: Available rooms: 1B, 2C, 3C, 3D, 3E
 
     hotel_manager.checkout_room("3D")
     hotel_manager.list_available_rooms()
-    # Should display: Available rooms: 1B, 2C, 3C, 3D, 3E
-
     hotel_manager.mark_room_repaired("1C")
     # Room 1C is not under repair
 
 
 if __name__ == "__main__":
-    run_unittest()
+    # Question 1: Part 1
+    run_unittest_part1()
+
+    # Question 1: Part 2 to get infected rooms amount of time
+    hotel_matrix = [[2, 1, 0, 2, 1],
+                    [2, 2, 0, 2, 2],
+                    [2, 2, 2, 2, 2]]
+    print("\n", "-----------PART2------------------", "\n")
+    print("Question1: Part2 ", get_all_infected_amount_of_time(hotel_matrix))
