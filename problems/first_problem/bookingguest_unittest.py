@@ -74,11 +74,13 @@ def run_unittest_part1():
 
 if __name__ == "__main__":
     # Question 1: Part 1
+    print("\n", "-----------Question1: Part1------------------", "\n")
     run_unittest_part1()
 
     # Question 1: Part 2 to get infected rooms amount of time
     hotel_matrix = [[2, 1, 0, 2, 1],
                     [2, 2, 0, 2, 2],
                     [2, 2, 2, 2, 2]]
-    print("\n", "-----------PART2------------------", "\n")
-    print("Question1: Part2 ", get_all_infected_amount_of_time(hotel_matrix))
+    print("\n", "-----------Question1: Part2------------------", "\n")
+    print("Infected Room Amount Of Time: ",
+          get_all_infected_amount_of_time(hotel_matrix))
