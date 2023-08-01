@@ -3,8 +3,6 @@
 import all required dependancy
 '''
 from spread_infection import get_all_infected_amount_of_time
-from room import Room
-from roomstatus import RoomStatus
 from hotelbooking import HotelRoomBooking
 
 # Unit test

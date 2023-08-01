@@ -1,23 +1,41 @@
+import string
 from room import Room
 from roomstatus import RoomStatus
 
 
 class HotelRoomBooking:
     def __init__(self, floors, room_per_floor):
+        self.room_per_floor = room_per_floor
         self.hotel_rooms = {
             f"{floor}{room_alphabet}": Room(f"{floor}{room_alphabet}")
             for floor in range(1, floors+1)
             for room_alphabet in "ABCDE"[:room_per_floor]
         }
 
-    @staticmethod
-    def getdistance_room(room_number):
-        # for example the room number 2A, the floor will be 2 and room letter will be A and the calculate the ASCI value from the letter
-        floor, room_letter = int(room_number[:-1]), room_number[-1]
-        distance = (floor - 1) * 5 + ord(room_letter) - ord('A')
-        # print("floor:", floor, "room_letter: ",
-        #       room_letter, "distance: ", distance)
-        return distance
+    # for example the room number 2A, the floor will be 2 and room letter will be A i.e 0 index from ASCII unicode
+    # room_letter : 1 _ A 0 0
+    # room_letter : 1 _ B 1 1
+    # room_letter : 1 _ C 2 2
+    # room_letter : 1 _ D 3 3
+    # room_letter : 1 _ E 4 4
+    # room_letter : 2 _ A 0 5
+    # room_letter : 2 _ B 1 6
+    # room_letter : 2 _ C 2 7
+    # room_letter : 2 _ D 3 8
+    # room_letter : 2 _ E 4 9
+    # room_letter : 3 _ A 0 10
+    # room_letter : 3 _ B 1 11
+    # room_letter : 3 _ C 2 12
+    # room_letter : 3 _ D 3 13
+    # room_letter : 3 _ E 4 14
+
+    def getdistance_room(self, room_number):
+        floor, room_letter = room_number[:-1], room_number[-1]
+        floor_index = int(floor) - 1
+        letter_index = string.ascii_uppercase.index(room_letter)
+        # print(f"room_letter : {floor} _ {room_letter}", letter_index,
+        #       (floor_index * self.room_per_floor + letter_index))
+        return (floor_index * self.room_per_floor + letter_index)
 
     def find_nearest_available_room(self):
         # the all available room first
