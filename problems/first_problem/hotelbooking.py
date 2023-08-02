@@ -28,7 +28,7 @@ class HotelRoomBooking:
     # room_letter : 3 _ C 2 12
     # room_letter : 3 _ D 3 13
     # room_letter : 3 _ E 4 14
-    # room_per_floor =5 , 
+
     def getdistance_room(self, room_number):
         floor, room_letter = room_number[:-1], room_number[-1]
         floor_index = int(floor) - 1
@@ -41,10 +41,10 @@ class HotelRoomBooking:
         # the all available room first
         availableroom = [
             room for room in self.hotel_rooms.values() if room.is_available()]
-        
+
         # find the minimum distance available from the enterance.
         # print("availableroom", availableroom)
-        # 1E, 2A, 2B, 2C, 2D, 2E, 3A, 3B, 3C, 3D, 3E -> Iterate based on the distance
+        # 1E, 2A, 2B, 2C, 2D, 2E, 3A, 3B, 3C, 3D, 3E -> Iterate based on the distance and get the minfrom the the list
         return min(availableroom, key=lambda room: self.getdistance_room(room.room_number))
 
     # create the function, A method to request room assignment, which will reply with the assigned room number upon success
@@ -60,7 +60,6 @@ class HotelRoomBooking:
     def checkout_room(self, room_number):
         room = self.hotel_rooms.get(room_number)
         #print("RoomStatus_checkout: ", room_number, ":", room.status)
-
         if room and room.status == RoomStatus.Occupied:
             room.change_status(RoomStatus.Vacant)
         elif room and room.status == RoomStatus.Vacant:
