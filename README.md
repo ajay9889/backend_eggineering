@@ -19,7 +19,7 @@ success.
 
 
 # To fulfill the requirements, I'll provide a Python program with the following classes and methods:
-## HotelRoomManager: 
+## HotelRoomBooking: 
 A class representing the hotel room manager that handles room assignments, checkouts, and room status changes.
 ## Room:
 A class representing each individual room with its status.
@@ -27,4 +27,15 @@ A class representing each individual room with its status.
 An enumeration to represent the possible room statuses.
 Unit tests for the provided functionality.
 
+# How to execute this program:
+1.	Clone project from GitHub repository [git@github.com:ajay9889/backend_eggineering.git] 
+2.	Make sure you have Python installed on local system 
+3.	Run the below command. 
+4.	> python bookingguest_unittest.py
+
+
+![Alt text](problems/first_problem/debug_scrren.png)
+
+
+Please read details document for more information.
 
